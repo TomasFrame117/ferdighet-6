@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p></p>
+    <input id="sliderBar" type="range" min="100" max="500" step="10" oninput="showDiv()"/>
+    <br/> <input id="textInput" type="text" oninput="showDiv()" value="endre texten"/>
+    <select id="changeColor" onchange="showDiv()">
+        <Option value="red">Rød</Option>
+        <Option selected value="green">Grønn</Option>
+        <Option value="blue">Blå</Option>
+    </select>
+    <div id="resultDiv"></div>
+    <div id="resultHtml" style="font-family: 'Courier New';"></div>
+    <script>
+        var resultDiv = document.getElementById('resultDiv');
+        var resultHtml = document.getElementById('resultHtml');
+        var sizeSlider = document.getElementById('sliderBar');
+        var textInput = document.getElementById('textInput');
+        var colorChange = document.getElementById('changeColor');
+
+        showDiv();
+
+        function showDiv() {
+            resultDiv.innerHTML = '<div style="'
+                + 'background-color: ' + colorChange.value + ';'
+                + 'width: ' + sizeSlider.value + 'px;'
+                + 'height: ' + sizeSlider.value + 'px;'
+                + '">' +
+                textInput.value + '</div>';
+            resultHtml.innerText = resultDiv.innerHTML;
+            console.log("");
+        }
+    </script>
+</body>
+</html>
