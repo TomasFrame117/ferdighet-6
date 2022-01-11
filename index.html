@@ -9,6 +9,9 @@
 <body>
     <p></p>
     <input id="sliderBar" type="range" min="100" max="500" step="10" oninput="showDiv()"/>
+
+    <input id="borderSliderRadius" type="range" min="1" max="50" step="1" oninput="showDiv()"/>
+
     <br/> <input id="textInput" type="text" oninput="showDiv()" value="endre texten"/>
     <select id="changeColor" onchange="showDiv()">
         <Option value="red">Rød</Option>
@@ -23,6 +26,7 @@
         var sizeSlider = document.getElementById('sliderBar');
         var textInput = document.getElementById('textInput');
         var colorChange = document.getElementById('changeColor');
+        var BSR = document.getElementById('borderSliderRadius');
 
         showDiv();
 
@@ -31,10 +35,10 @@
                 + 'background-color: ' + colorChange.value + ';'
                 + 'width: ' + sizeSlider.value + 'px;'
                 + 'height: ' + sizeSlider.value + 'px;'
-                + '">' +
-                textInput.value + '</div>';
+                + 'border-radius: ' + BSR.value + '%;'
+                + '">' 
+                + textInput.value + '</div>';
             resultHtml.innerText = resultDiv.innerHTML;
-            console.log("");
         }
     </script>
 </body>
